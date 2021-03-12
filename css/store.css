@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #ffffff;
+    font-family: Monospace;
+    font-size: 13px;
+    line-height: 24px;
+    overflow: hidden;
+}
+
+.sliderbar {
+    height: 60vh;
+    width: 30px;
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.sliderbar img {
+    height: 14.2%;
+    width: 100%;
+    display: block;
+}
+
+.showMessage {
+    border-radius: 20px;
+    display: none;
+    height: 200px;
+    width: 150px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: #999999;
+    opacity: 0.8;
+    color: white;
+    font-size: 10px;
+    user-select: none;
+    z-index: 10;
+    text-align: center;
+}
+
+.black {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 100000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.loading {
+    position: fixed;
+    user-select: none;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+}
+
+.box1,
+.box2 {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+.box1 div,
+.box2 div {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(5, 255, 192);
+    position: absolute;
+    border-radius: 50%;
+    animation: loading 1.5s infinite linear;
+}
+
+.box2 {
+    transform: rotate(45deg);
+}
+
+.box1 div:nth-child(1),
+.box2 div:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+
+.box1 div:nth-child(2),
+.box2 div:nth-child(2) {
+    right: 0;
+    top: 0;
+}
+
+.box1 div:nth-child(3),
+.box2 div:nth-child(3) {
+    right: 0;
+    bottom: 0;
+}
+
+.box1 div:nth-child(4),
+.box2 div:nth-child(4) {
+    left: 0;
+    bottom: 0;
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.box1 div:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.box2 div:nth-child(1) {
+    animation-delay: .2s;
+}
+
+.box1 div:nth-child(2) {
+    animation-delay: .4s;
+}
+
+.box2 div:nth-child(2) {
+    animation-delay: .6s;
+}
+
+.box1 div:nth-child(3) {
+    animation-delay: .8s;
+}
+
+.box2 div:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.box1 div:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+.loadingfont {
+    position: absolute;
+    bottom: 20px;
+    left: -13%;
+}

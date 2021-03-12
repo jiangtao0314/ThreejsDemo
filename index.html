@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>智慧物流中心</title>
+    <!-- threejs -->
+    <script src="./lib/three.js"></script>
+    <!-- 相机控件 -->
+    <script src="./lib/OrbitControls.js"></script>
+    <!-- 性能控件 -->
+    <script src="./lib/stats.min.js"></script>
+    <!-- ThreeBSP -->
+    <script src="./lib/ThreeBSP.js"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- echarts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@1/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@1/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/china.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/map/js/world.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/extension/bmap.min.js"></script>
+    <!-- Loader -->
+    <script src="./lib/OBJLoader.js"></script>
+    <script src="./lib/MTLLoader.js"></script>
+    <!-- tweenjs -->
+    <script src="./lib/Tween.js"></script>
+    <!-- threejs后期处理 -->
+    <script src="./lib/EffectComposer.js"></script>
+    <script src="./lib/ShaderPass.js"></script>
+    <script src="./lib/CopyShader.js"></script>
+    <script src="./lib/RenderPass.js"></script>
+    <script src="./lib/OutlinePass.js"></script>
+    <!-- 第一视角 -->
+    <script src="./lib/PointerLockControls.js"></script>
+
+    <script src="./js/objects/MoveAGVCar.js"></script>
+    <script src="./js/objects/ClickSelect.js"></script>
+    <script src="./js/common/CommonFunction.js"></script>
+    <script src="./js/objects/Cube.js"></script>
+    <script src="./js/objects/Store3D.js"></script>
+    <script src="./js/Data/BuildingData.js"></script>
+    <script src="./js/objects/Wall.js"></script>
+    <script src="./js/objects/Area.js"></script>
+    <script src="./js/objects/OpacityCube.js"></script>
+    <script src="./js/objects/Goods.js"></script>
+    <script src="./js/objects/PieEcharts.js"></script>
+    <script src="./js/objects/TempEcharts.js"></script>
+    <script src="./js/objects/StoreGoods.js"></script>
+    <script src="./js/objects/ShowData.js"></script>
+    <script src="./js/objects/AGVCar.js"></script>
+
+    <link rel="stylesheet" href="css/store.css">
+</head>
+
+<body>
+    <div class="sliderbar">
+        <img src="./img/icon/fps.svg" alt="" title="切换温度显示" class="changEcharts">
+        <img src="./img/icon/group.svg" alt="" title="隐藏帧数" class="hideFPS">
+        <img src="./img/icon/heatmap.svg" alt="" title="隐藏方块" class="hideOpacityCube">
+        <img src="./img/icon/roomRate.svg" alt="" title="显示空间利用率" class="showSpace">
+        <img src="./img/icon/reset.svg" alt="" title="恢复初始" class="reset">
+        <img src="./img/icon/skyBox.svg" alt="" title="切换背景" class="changebg">
+        <img src="./img/icon/temperature.svg" alt="" title="第一视角" class="tour">
+    </div>
+    <div id="container">
+
+    </div>
+    <div class="showMessage">
+    </div>
+
+    <div class="black">
+        <div class="loading">
+            <div class="box1">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="box2">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loadingfont">
+                资源加载中
+            </div>
+        </div>
+    </div>
+    <script>
+        let store = new Store3D();
+        store.start();
+
+        document.querySelector('.hideFPS').addEventListener('click', () => {
+            store.hideFPS();
+        })
+
+        document.querySelector('.reset').addEventListener('click', () => {
+            store.reset();
+        })
+        document.querySelector('.hideOpacityCube').addEventListener('click', () => {
+            store.HideOpacityBox();
+        })
+        document.querySelector('.changEcharts').addEventListener('click', () => {
+            store.changEcharts();
+        })
+        document.querySelector('.showSpace').addEventListener('click', () => {
+            store.showSpace()
+        })
+        document.querySelector('.changebg').addEventListener('click', () => {
+            store.changebg()
+        })
+        document.querySelector('.tour').addEventListener('click', () => {
+            store.lockControl();
+        })
+    </script>
+</body>
+
+</html>
