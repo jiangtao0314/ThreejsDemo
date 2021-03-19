@@ -218,18 +218,16 @@ Store3D.prototype.initMain = function() {
 
     //发送Axios请求 并渲染库区
     Store3D.prototype.setAxios = function() {
-        axios.defaults.baseURL = 'http://47.104.67.107:8082//api';
 
         axios.defaults.timeout = '10000';
         axios({
-                url: '/Store',
+                url: '../../data.json',
                 method: 'get',
             })
             .then(res => {
+                console.log(res.data);
                 if (res.data != null) {
-                    // console.log(res.data);
-                    let AreasData = eval('(' + res.data + ')');
-                    AreasData.Areas.forEach(item => {
+                    res.data.Areas.forEach(item => {
 
                         item.Stores.forEach(item2 => {
                             //库区XYZ轴位置
